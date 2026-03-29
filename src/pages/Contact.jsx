@@ -1,12 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, MapPin, Send, MessageSquare, Share2, Camera, ArrowRight, Code, Link2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import '../styles/Contact.css';
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState(null); // 'success' | 'error' | null
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
+
+    const formData = new FormData(e.target);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/xkopjrwb", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        e.target.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactInfo = [
     { icon: <Mail size={22} />, title: "Email Us", detail: "uninovatech.admin@gmail.com", sub: "Response within 24 hours" },
-    { icon: <MapPin size={22} />, title: "Visit Us", detail: "Block A, 472/3, Maheswari Nagar, B Narayanapura", sub: "Mahadevapura, Bengaluru 560048" },
+    { icon: <MapPin size={22} />, title: "Visit Us", detail: "Maheswari Nagar", sub: "Mahadevapura, Bengaluru 560048" },
   ];
 
   const containerVariants = {
@@ -103,53 +135,100 @@ const Contact = () => {
           >
             <div className="contact-form-card__blob" />
 
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-              <div className="contact-form__row">
+            {status === 'success' ? (
+              <motion.div 
+                className="contact-form__success"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+              >
+                <div className="contact-form__success-icon">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", damping: 12, delay: 0.2 }}
+                  >
+                    <Send size={40} />
+                  </motion.div>
+                </div>
+                <h3 className="contact-form__success-title">Message Sent!</h3>
+                <p className="contact-form__success-text">
+                  Thank you for reaching out. Our team has received your message and will get back to you within 24 hours.
+                </p>
+                <button 
+                  className="contact-form__success-btn"
+                  onClick={() => setStatus(null)}
+                >
+                  Send Another Message
+                </button>
+              </motion.div>
+            ) : (
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <div className="contact-form__row">
+                  <div className="contact-form__field">
+                    <label className="contact-form__label">Full Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="John Doe"
+                      className="contact-form__input"
+                    />
+                  </div>
+                  <div className="contact-form__field">
+                    <label className="contact-form__label">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="john@example.com"
+                      className="contact-form__input"
+                    />
+                  </div>
+                </div>
+
                 <div className="contact-form__field">
-                  <label className="contact-form__label">Full Name</label>
+                  <label className="contact-form__label">Subject</label>
                   <input
                     type="text"
-                    placeholder="John Doe"
+                    name="subject"
+                    required
+                    placeholder="How can we help?"
                     className="contact-form__input"
                   />
                 </div>
+
                 <div className="contact-form__field">
-                  <label className="contact-form__label">Email Address</label>
-                  <input
-                    type="email"
-                    placeholder="john@example.com"
-                    className="contact-form__input"
+                  <label className="contact-form__label">Message</label>
+                  <textarea
+                    rows="5"
+                    name="message"
+                    required
+                    placeholder="Tell us about your project..."
+                    className="contact-form__textarea"
                   />
                 </div>
-              </div>
 
-              <div className="contact-form__field">
-                <label className="contact-form__label">Subject</label>
-                <input
-                  type="text"
-                  placeholder="How can we help?"
-                  className="contact-form__input"
-                />
-              </div>
+                {status === 'error' && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    className="contact-form__error"
+                  >
+                    Oops! Something went wrong. Please try again later.
+                  </motion.p>
+                )}
 
-              <div className="contact-form__field">
-                <label className="contact-form__label">Message</label>
-                <textarea
-                  rows="5"
-                  placeholder="Tell us about your project..."
-                  className="contact-form__textarea"
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                className="contact-form__submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Send Message <Send size={18} />
-              </motion.button>
-            </form>
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="contact-form__submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"} <Send size={18} />
+                </motion.button>
+              </form>
+            )}
           </motion.div>
         </div>
       </section>
@@ -167,11 +246,11 @@ const Contact = () => {
               <div className="contact-office__box">
                 <h3 className="contact-office__box-heading">Bangalore HQ</h3>
                 <p className="contact-office__box-text">
-                  Block A, 472/3, Maheswari Nagar, B Narayanapura, Mahadevapura, Bengaluru, Karnataka 560048, India
+                  Maheswari Nagar, Mahadevapura, Bengaluru, Karnataka 560048
                 </p>
                 <button 
                   className="contact-office__directions-btn"
-                  onClick={() => window.open('https://maps.google.com/?q=Block+A,+472/3,+Maheswari+Nagar,+B+Narayanapura,+Mahadevapura,+Bengaluru,+Karnataka+560048,+India', '_blank')}
+                  onClick={() => window.open('https://maps.google.com/?q=Maheswari+Nagar,+Mahadevapura,+Bengaluru,+Karnataka+560048', '_blank')}
                 >
                   Get Directions <ArrowRight size={18} />
                 </button>
