@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ─── Footer Base ─── */
+.footer-section {
+  font-family: 'DM Sans', sans-serif;
+  background: #060b18;
+  color: #94a3b8;
+  padding: 64px 0 32px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #0f1f35;
+}
+
+/* ─── Ambient Glow Effects ─── */
+.footer-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(0, 200, 160, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(0, 120, 255, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Container ─── */
+.footer-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Grid Layout ─── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* ─── Brand / Logo Column ─── */
+.footer-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-brand-link:hover {
+  opacity: 0.85;
+}
+
+.footer-brand-link img {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.footer-brand-link:hover img {
+  transform: scale(1.05);
+}
+
+.footer-brand-desc {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #64748b;
+  max-width: 240px;
+  margin: 0 0 24px;
+}
+
+/* ─── Social Icons ─── */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #1a2a3a;
+  background: #0a1628;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  text-decoration: none;
+  transition: border-color 0.25s ease, color 0.25s ease,
+              background 0.25s ease, transform 0.25s ease;
+}
+
+.footer-social-btn:hover {
+  border-color: #00c8a0;
+  color: #00c8a0;
+  background: rgba(0, 200, 160, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ─── Column Headings ─── */
+.footer-col-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding-left: 12px;
+  border-left: 2px solid #00c8a0;
+  line-height: 1.4;
+}
+
+/* ─── Navigation Link Lists ─── */
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link-list li a {
+  font-size: 13.5px;
+  color: #64748b;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+  position: relative;
+  padding-left: 0;
+}
+
+.footer-link-list li a::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 1px;
+  background: #00c8a0;
+  transition: width 0.25s ease;
+  flex-shrink: 0;
+}
+
+.footer-link-list li a:hover {
+  color: #00c8a0;
+}
+
+.footer-link-list li a:hover::before {
+  width: 12px;
+}
+
+/* ─── Contact Items ─── */
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.footer-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.footer-contact-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 200, 160, 0.08);
+  border: 1px solid rgba(0, 200, 160, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #00c8a0;
+}
+
+.footer-contact-text {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.55;
+  padding-top: 6px;
+}
+
+/* ─── Bottom Bar ─── */
+.footer-bottom {
+  border-top: 1px solid #0f1f35;
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-copy {
+  font-size: 12.5px;
+  color: #334155;
+  text-align: center;
+}
