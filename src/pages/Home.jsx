@@ -172,7 +172,7 @@ const Home = () => {
           {[
             { n: "5+", l: "Years Experience" },
             { n: "25+", l: "Projects Completed" },
-            { n: "50+", l: "Expert Engineers" },
+            { n: "15+", l: "Expert Engineers" },
             { n: "99%", l: "Client Satisfaction" },
           ].map((stat, i) => (
             <div key={i} className="home-stats__item">
