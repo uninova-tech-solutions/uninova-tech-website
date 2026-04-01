@@ -170,8 +170,8 @@ const Home = () => {
       <section className="home-stats">
         <div className="container home-stats__grid">
           {[
-            { n: "10+", l: "Years Experience" },
-            { n: "250+", l: "Projects Completed" },
+            { n: "5+", l: "Years Experience" },
+            { n: "25+", l: "Projects Completed" },
             { n: "50+", l: "Expert Engineers" },
             { n: "99%", l: "Client Satisfaction" },
           ].map((stat, i) => (
