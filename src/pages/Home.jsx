@@ -72,10 +72,10 @@ const Home = () => {
                     <img src={`https://i.pravatar.cc/40?img=${i + 10}`} alt="client" />
                   </div>
                 ))}
-                <div className="home-hero__avatar">50+</div>
+                <div className="home-hero__avatar">25+</div>
               </div>
               <p className="home-hero__trust-text">
-                Trusted by <strong>500+</strong> global companies
+                Trusted by <strong>25+</strong> global companies
               </p>
             </motion.div>
           </motion.div>

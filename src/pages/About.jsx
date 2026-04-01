@@ -30,7 +30,7 @@ const About = () => {
     {
       icon: <Users size={32} />,
       title: "Expert Talent Pool",
-      desc: "Our team of 50+ certified engineers, architects, and strategists brings deep domain expertise across industries including BFSI, healthcare, and e-commerce."
+      desc: "Our team of 15+ certified engineers, architects, and strategists brings deep domain expertise across industries including BFSI, healthcare, and e-commerce."
     },
     {
       icon: <TrendingUp size={32} />,
@@ -40,12 +40,12 @@ const About = () => {
   ];
 
   const milestones = [
-    { year: "2015", event: "Founded in Bangalore with a core team of 5 engineers" },
-    { year: "2017", event: "Expanded to 30+ clients across India and Southeast Asia" },
-    { year: "2019", event: "Launched Cloud & DevOps practice; crossed 100 projects" },
-    { year: "2021", event: "Opened delivery centre; onboarded first Fortune 500 client" },
-    { year: "2023", event: "AI & ML division established; team grew to 50+ engineers" },
-    { year: "2025", event: "Serving 200+ clients across 12 countries worldwide" },
+    { year: "2020", event: "Founded in Bangalore as a dedicated IT consulting firm" },
+    { year: "2021", event: "Launched core Web and Full Stack development services" },
+    { year: "2022", event: "Expanded client base to 3 countries worldwide" },
+    { year: "2023", event: "Team grew to 15+ expert engineers" },
+    { year: "2024", event: "Established Cloud & DevOps practice" },
+    { year: "2025", event: "Celebrating 5 years of excellence with 25+ projects completed" },
   ];
 
   const containerVariants = {
@@ -73,28 +73,28 @@ const About = () => {
           <div className="about-hero-tag">About Uninova Tech</div>
           <h1>Engineering the <span>Future</span> of Business</h1>
           <p>
-            For over a decade, we have partnered with startups, enterprises, and
+            For the past 5 years, we have partnered with startups, enterprises, and
             government bodies to design, build, and scale technology that drives
             real business outcomes.
           </p>
           <div className="about-hero-stats">
             <div className="about-hero-stat">
-              <strong>10+</strong>
+              <strong>5+</strong>
               <span>Years of Excellence</span>
             </div>
             <div className="about-hero-stat-divider"></div>
             <div className="about-hero-stat">
-              <strong>250+</strong>
+              <strong>25+</strong>
               <span>Projects Delivered</span>
             </div>
             <div className="about-hero-stat-divider"></div>
             <div className="about-hero-stat">
-              <strong>12</strong>
+              <strong>3</strong>
               <span>Countries Served</span>
             </div>
             <div className="about-hero-stat-divider"></div>
             <div className="about-hero-stat">
-              <strong>50+</strong>
+              <strong>15+</strong>
               <span>Certified Engineers</span>
             </div>
           </div>
@@ -115,7 +115,7 @@ const About = () => {
             <h2>A Technology Partner You Can Build Your Business On</h2>
             <p>
               Uninova Tech Solutions is a full-spectrum IT services and consulting firm
-              headquartered in Bangalore, India. Since 2015, we have helped businesses
+              headquartered in Bangalore, India. Since 2020, we have helped businesses
               across industries modernize their operations, accelerate digital transformation,
               and unlock new revenue streams through technology.
             </p>
@@ -190,7 +190,7 @@ const About = () => {
         <div className="about-timeline-inner">
           <div className="about-why-header">
             <span>Our Journey</span>
-            <h2>A Decade of Growth and Innovation</h2>
+            <h2>5 Years of Growth and Innovation</h2>
           </div>
           <div className="about-timeline-list">
             {milestones.map((m, idx) => (
@@ -215,7 +215,7 @@ const About = () => {
       <section className="about-why">
         <div className="about-why-header">
           <span>The Uninova Advantage</span>
-          <h2>Why 200+ Businesses Choose Us</h2>
+          <h2>Why Our Clients Choose Us</h2>
         </div>
         <motion.div
           className="about-why-grid"
