@@ -38,7 +38,7 @@ const Contact = () => {
 
   const contactInfo = [
     { icon: <Mail size={22} />, title: "Email Us", detail: "uninovatech.admin@gmail.com", sub: "Response within 24 hours" },
-    { icon: <MapPin size={22} />, title: "Visit Us", detail: "Maheswari Nagar", sub: "Mahadevapura, Bengaluru 560048" },
+    { icon: <MapPin size={22} />, title: "Visit Us", detail: "Mahadevapura, Bengaluru", sub: "Karnataka 560048" },
   ];
 
   const containerVariants = {
@@ -246,11 +246,11 @@ const Contact = () => {
               <div className="contact-office__box">
                 <h3 className="contact-office__box-heading">Bangalore HQ</h3>
                 <p className="contact-office__box-text">
-                  Maheswari Nagar, Mahadevapura, Bengaluru, Karnataka 560048
+                  Mahadevapura, Bengaluru, Karnataka 560048
                 </p>
                 <button 
                   className="contact-office__directions-btn"
-                  onClick={() => window.open('https://maps.google.com/?q=Maheswari+Nagar,+Mahadevapura,+Bengaluru,+Karnataka+560048', '_blank')}
+                  onClick={() => window.open('https://maps.google.com/?q=Mahadevapura,+Bengaluru,+Karnataka+560048', '_blank')}
                 >
                   Get Directions <ArrowRight size={18} />
                 </button>

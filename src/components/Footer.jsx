@@ -99,7 +99,7 @@ const Footer = () => {
               <div className="footer-contact-icon">
                 <MapPin size={14} />
               </div>
-              <span className="footer-contact-text">Maheswari Nagar, Mahadevapura, Bengaluru, Karnataka 560048</span>
+              <span className="footer-contact-text">Mahadevapura, Bengaluru, Karnataka 560048</span>
             </div>
 
 
